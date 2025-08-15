@@ -6,6 +6,8 @@
 from tkinter import *
 from tkinter import ttk
 
+
+# still needs updated
 def calculate(*args):
     try:
         value=float(feet.get())
@@ -15,31 +17,31 @@ def calculate(*args):
 
 
 root = Tk()
-root.title("Feet to Meters")
+root.title("Pomodoro Timer")
 
 mainframe = ttk.Frame(root, padding="3 3 12 12")
 mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
 
-feet = StringVar()
-feet_entry = ttk.Entry(mainframe, width=7, textvariable=feet)
-feet_entry.grid(column=2, row=1, sticky=(W, E))
+init_time= StringVar() # used to be feet, I can delete this comment after I change every insance of feet
+time_entry = ttk.Entry(mainframe, width=7, textvariable=init_time)
+time_entry.grid(column=2, row=1, sticky=(W, E))
 
-meters = StringVar()
-ttk.Label(mainframe, textvariable=meters).grid(column=2, row=2, sticky=(W, E))
+time_remaining = StringVar()
+ttk.Label(mainframe, textvariable=time_remaining).grid(column=2, row=2, sticky=(W, E))
 
 ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=3, sticky=(W))
 
-ttk.Label(mainframe, text="feet").grid(column=3, row=1, sticky=W)
-ttk.Label(mainframe, text="is equivalent to").grid(column=1, row=2, sticky=E)
-ttk.Label(mainframe, text="meters").grid(column=3, row=2, sticky=W)
+ttk.Label(mainframe, text="The").grid(column=3, row=1, sticky=W)
+ttk.Label(mainframe, text="remaining time is").grid(column=1, row=2, sticky=E)
+ttk.Label(mainframe, text="seconds").grid(column=3, row=2, sticky=W)
 
 for child in mainframe.winfo_children():
     child.grid_configure(padx=5, pady=5)
 
 
-feet_entry.focus()
+time_entry.focus()
 root.bind("<Return>", calculate)
 
 root.mainloop()
