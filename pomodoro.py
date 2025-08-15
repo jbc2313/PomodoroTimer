@@ -8,7 +8,7 @@ from tkinter import ttk
 
 
 # still needs updated
-def calculate(*args):
+def calculate_remaining_time(*args):
     try:
         value=float(feet.get())
         meters.set(int(0.308 * value * 10000.0 + 0.5)/10000.0)
@@ -31,8 +31,7 @@ time_entry.grid(column=2, row=1, sticky=(W, E))
 time_remaining = StringVar()
 ttk.Label(mainframe, textvariable=time_remaining).grid(column=2, row=2, sticky=(W, E))
 
-ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=3, sticky=(W))
-
+ttk.Button(mainframe, text="Start Timer", command=calculate_remaining_time).grid(column=3, row=3, sticky=(W))
 ttk.Label(mainframe, text="The").grid(column=3, row=1, sticky=W)
 ttk.Label(mainframe, text="remaining time is").grid(column=1, row=2, sticky=E)
 ttk.Label(mainframe, text="seconds").grid(column=3, row=2, sticky=W)
